@@ -1,9 +1,8 @@
 # test_task
 
-Run with [Task](https://github.com/go-task/task)
+Run with [Task](https://github.com/go-task/task)<br/>
 
-Comands:
-  build - Build the go binary.
-  gen - Generate api from proto.
-  docker - Build image and run into Docker.
-  
+Comands:<br/>
+  build - Build the go binary.<br/>
+  gen - Generate api from proto.<br/>
+  docker - Build image and run into Docker.<br/>
