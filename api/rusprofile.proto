@@ -1,0 +1,22 @@
+syntax = "proto3";
+package rusprofile.v1;
+import "google/api/annotations.proto";
+option go_package = "./pkg/api";
+
+service RusprofileService {
+    rpc GetData (RequestPersonalData) returns (ResponsePersonalData) {
+      option (google.api.http) = {
+        get: "/rusprofile/v1/{inn}"
+      };
+    }
+}
+
+message RequestPersonalData {
+    string inn = 1;
+}
+
+message ResponsePersonalData {
+    string inn = 1;
+    string kpp = 2;
+    string ceo = 3;
+}
