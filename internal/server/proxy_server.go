@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+	"fmt"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/encoding/protojson"
@@ -39,5 +40,6 @@ func (ps *ProxyServer) Run(ctx context.Context) error {
 	ps.Addr = ps.server.config.ProxyAddr
 	ps.Handler = registerProxyServer(mux)
 
+	fmt.Printf("The Proxy Server is running on port %s\n", ps.server.config.ProxyAddr)
 	return ps.ListenAndServe()
 }

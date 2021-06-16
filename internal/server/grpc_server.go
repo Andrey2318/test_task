@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"google.golang.org/grpc"
 	"net"
 	"net/url"
@@ -33,5 +34,6 @@ func (gr *GRPCServer) Run() error {
 
 	api.RegisterRusprofileServiceServer(gr, se.RusprofileController())
 
+	fmt.Printf("The GRPC Server is running on port %s\n", gr.server.config.GRPCAddr)
 	return gr.Serve(lis)
 }
