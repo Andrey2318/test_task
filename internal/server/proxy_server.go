@@ -33,9 +33,7 @@ func (ps *ProxyServer) Run(ctx context.Context) error {
 
 	mux := http.NewServeMux()
 	mux.Handle("/", gw)
-	mux.HandleFunc("/api.swagger.json", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "./swagger/api.swagger.json")
-	})
+	mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./swagger"))))
 
 	ps.Addr = ps.server.config.ProxyAddr
 	ps.Handler = registerProxyServer(mux)
